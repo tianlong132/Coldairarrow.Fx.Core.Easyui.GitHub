@@ -29,6 +29,7 @@ namespace Coldairarrow.Web
                 {
                     return;
                 }
+
                 //判断是否需要登录
                 List<string> attrList = FilterHelper.GetFilterList(filterContext);
                 bool needLogin = attrList.Contains(typeof(CheckLoginAttribute).FullName) && !attrList.Contains(typeof(IgnoreLoginAttribute).FullName);

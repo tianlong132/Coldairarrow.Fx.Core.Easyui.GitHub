@@ -81,6 +81,7 @@ namespace Coldairarrow.Web
                 });
             });
 
+            //判断是本地账户就进行显示
             if (GlobalSwitch.RunModel == RunModel.LocalTest)
             {
                 Menu newMenu1 = new Menu
