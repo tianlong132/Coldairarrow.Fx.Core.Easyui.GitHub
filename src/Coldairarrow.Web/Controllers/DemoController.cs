@@ -26,6 +26,12 @@ namespace Coldairarrow.Web.Controllers
 
         #region 接口
 
+        /// <summary>
+        /// 文件上传Base64
+        /// </summary>
+        /// <param name="fileBase64"></param>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public ActionResult UploadFile(string fileBase64, string fileName)
         {
             byte[] bytes = fileBase64.ToBytes_FromBase64Str();
@@ -40,7 +46,6 @@ namespace Coldairarrow.Web.Controllers
                     m.WriteTo(fileStream);
                 }
             }
-
             return Success();
         }
 
