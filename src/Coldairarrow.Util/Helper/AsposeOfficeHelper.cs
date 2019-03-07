@@ -56,31 +56,16 @@ namespace Coldairarrow.Util
         /// 注：默认将第一行当作标题行，即不当作数据
         /// </summary>
         /// <param name="fileNmae">文件名</param>
+        ///  <param name="exportColumnName">是否将第一行当作标题行</param>
         /// <returns></returns>
-        public static DataTable ReadExcel(string fileNmae)
+        public static DataTable ReadExcel(string fileName,bool exportColumnName=true)
         {
-            Workbook book = new Workbook(fileNmae);
-            Worksheet sheet = book.Worksheets[0];
-            Cells cells = sheet.Cells;
-
-            return cells.ExportDataTableAsString(0, 0, cells.MaxDataRow + 1, cells.MaxDataColumn + 1, true);
-        }
-
-        /// <summary>
-        /// 从excel文件导入数据
-        /// </summary>
-        /// <param name="fileNmae">文件名</param>
-        /// <param name="exportColumnName">是否将第一行当作标题行</param>
-        /// <returns></returns>
-        public static DataTable ReadExcel(string fileNmae,bool exportColumnName)
-        {
-            Workbook book = new Workbook(fileNmae);
+            Workbook book = new Workbook(fileName);
             Worksheet sheet = book.Worksheets[0];
             Cells cells = sheet.Cells;
 
             return cells.ExportDataTableAsString(0, 0, cells.MaxDataRow + 1, cells.MaxDataColumn + 1, exportColumnName);
         }
-
         /// <summary>
         /// 从excel文件字节源导入
         /// 注：默认将第一行当作标题行，即不当作数据
